@@ -19,7 +19,7 @@ end.map do |line|
 end.join(",")
 
 packet = <<EOF
-type:log
+type:wlan
 wlan_event:hotspot_state
 devices:[#{ devices }]
 hostname:#{ Socket.gethostname }
