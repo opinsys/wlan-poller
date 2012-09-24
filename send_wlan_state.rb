@@ -21,7 +21,7 @@ end.join(",")
 packet = <<EOF
 type:wlan
 wlan_event:hotspot_state
-devices:[#{ devices }]
+connected_devices:[#{ devices }]
 hostname:#{ Socket.gethostname }
 EOF
 
