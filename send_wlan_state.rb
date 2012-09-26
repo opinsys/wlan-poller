@@ -62,7 +62,7 @@ wlan_event:hotspot_state
 connected_devices:[#{ @devices.join(",") }]
 hostname:#{ Socket.gethostname }
 EOF
-    puts "Sending", packet
+    puts "#{ Time.now } Sending #{ packet.split("\n").join("|") }"
     @sock.send packet, 0
     @sent_hashkey = current_hashkey
   end
