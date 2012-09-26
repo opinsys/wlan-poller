@@ -1,0 +1,13 @@
+Source: wlan-poller
+Section: utils
+Priority: extra
+Maintainer: Esa-Matti Suuronen <esa-matti.suuronen@opinsys.fi>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.8.4
+Homepage: http://github.com/opinsys/wlan-poller
+
+Package: wlan-poller
+Architecture: all
+Depends: ${misc:Depends}, ruby
+Description: WLAN poller
+ WLAN poller to the max

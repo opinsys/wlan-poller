@@ -1,0 +1,5 @@
+wlan-poller (1.0-0ubuntu0-opinsys1) lucid; urgency=low
+
+  * Initial release
+
+ -- Esa-Matti Suuronen <esa-matti.suuronen@opnisys.fi>  Wed, 26 Sep 2012 12:38:49 +0200
