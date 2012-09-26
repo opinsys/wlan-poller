@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 
-require "pp"
 require "socket"
 
 HOST = "eventlog"
 PORT = 3858
 POLL_INTERVAL = 50
+
 
 
 def device_list
@@ -62,7 +62,7 @@ wlan_event:hotspot_state
 connected_devices:[#{ @devices.join(",") }]
 hostname:#{ Socket.gethostname }
 EOF
-    puts "#{ Time.now } Sending #{ packet.split("\n").join("|") }"
+    STDERR.puts "#{ Time.now } Sending #{ packet.split("\n").join("|") }"
     @sock.send packet, 0
     @sent_hashkey = current_hashkey
   end
@@ -71,6 +71,7 @@ end
 
 
 if __FILE__ == $0
+  STDERR.puts "#{ Time.now } starting wlan poller"
   poller = DevicePoller.new HOST, PORT, POLL_INTERVAL
   poller.loop()
 end
