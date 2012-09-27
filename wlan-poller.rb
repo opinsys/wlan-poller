@@ -6,12 +6,15 @@ HOST = "eventlog"
 PORT = 3858
 POLL_INTERVAL = 60
 
+def log(*args)
+  STDERR.puts(*args)
+end
 
 
 def device_list
   output =  `hostapd_cli all_sta`
   if not $?.success?
-    STDERR.puts "failed to execute 'hostapd_cli all_sta'"
+    log "failed to execute 'hostapd_cli all_sta'"
     return []
   end
 
@@ -62,7 +65,7 @@ wlan_event:hotspot_state
 connected_devices:[#{ @devices.join(",") }]
 hostname:#{ Socket.gethostname }
 EOF
-    STDERR.puts "#{ Time.now } Sending #{ packet.split("\n").join("|") }"
+    log "#{ Time.now } Sending #{ packet.split("\n").join("|") }"
     @sock.send packet, 0
     @sent_hashkey = current_hashkey
   end
@@ -71,7 +74,7 @@ end
 
 
 if __FILE__ == $0
-  STDERR.puts "#{ Time.now } starting wlan poller"
+  log "#{ Time.now } starting wlan poller"
   poller = DevicePoller.new HOST, PORT, POLL_INTERVAL
   poller.loop()
 end
