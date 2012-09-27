@@ -4,7 +4,7 @@ require "socket"
 
 HOST = "eventlog"
 PORT = 3858
-POLL_INTERVAL = 50
+POLL_INTERVAL = 60
 
 
 
