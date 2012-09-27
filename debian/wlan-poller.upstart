@@ -4,7 +4,7 @@ start on started hostapd
 stop on stopped hostapd
 
 script
-    exec 2>>/var/log/poller.log
+    exec 2>>/var/log/wlan-poller.log
     exec 1>&2
     wlan-poller
 end script
